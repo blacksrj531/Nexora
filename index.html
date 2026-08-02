@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta name="author" content="Soumya Ranjan Jena">
-<meta name="copyright" content="Copyright © 2026 Soumya Ranjan Jena. All rights reserved.">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>NEXORA — AI Workflow Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -59,7 +57,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 /* ANNOUNCEMENT BAR */
 .announcement{position:fixed;top:0;left:0;right:0;z-index:10002;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 20px;text-align:center;font-size:.8rem;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;transform:translateY(-100%);animation:slideDown .5s ease .5s forwards}
 @keyframes slideDown{to{transform:translateY(0)}}
-.announcement-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;cursor:none;font-size:1.2rem;opacity:.7}
+.announcement-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem;opacity:.7}
 
 /* CUSTOM CURSOR */
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:difference}
@@ -76,41 +74,42 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 .orb-3{width:400px;height:400px;background:var(--accent-3);top:50%;left:50%;animation-delay:-14s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(100px,-50px) scale(1.1)}50%{transform:translate(-50px,100px) scale(.9)}75%{transform:translate(-100px,-100px) scale(1.05)}}
 
-/* NAV - FIXED RESPONSIVE */
+/* NAV */
 nav{position:fixed;top:40px;left:0;right:0;z-index:1000;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(7,7,11,.6);border-bottom:1px solid var(--border);transition:all .4s}
 [data-theme="light"] nav{background:rgba(250,250,250,.7)}
 [data-theme="light"] nav.scrolled{background:rgba(250,250,250,.95)}
 nav.scrolled{padding:12px 40px;background:rgba(7,7,11,.9)}
-.nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.4rem;display:flex;align-items:center;gap:10px}
+.nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.4rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;transition:opacity .3s;cursor:pointer}
+.nav-logo:hover{opacity:.8}
 .nav-logo .logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;color:#fff}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{color:var(--text-dim);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:12px}
-.nav-icon-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:none;transition:all .3s}
+.nav-icon-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer;transition:all .3s}
 .nav-icon-btn:hover{border-color:var(--border-h);color:var(--text)}
-.nav-cta{padding:10px 24px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:600;font-size:.85rem;border:none;cursor:none;text-decoration:none;transition:transform .3s}
+.nav-cta{padding:10px 24px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:600;font-size:.85rem;border:none;cursor:pointer;text-decoration:none;transition:transform .3s}
 .nav-cta:hover{transform:translateY(-2px)}
-.nav-login-btn{padding:10px 20px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:.85rem;cursor:none;transition:all .3s}
+.nav-login-btn{padding:10px 20px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:.85rem;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center}
 .nav-login-btn:hover{border-color:var(--border-h);background:var(--surface-2)}
 
 /* HAMBURGER MENU */
-.hamburger{display:none;width:36px;height:36px;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:none;padding:0}
+.hamburger{display:none;width:36px;height:36px;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:pointer;padding:0;z-index:10001}
 .hamburger span{width:22px;height:2px;background:var(--text);transition:all .3s;border-radius:1px}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* MOBILE MENU OVERLAY */
-.mobile-menu{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .4s}
+.mobile-menu{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .4s}
 .mobile-menu.active{opacity:1;visibility:visible}
-.mobile-menu a{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--text);text-decoration:none;transition:color .3s}
+.mobile-menu a{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--text);text-decoration:none;transition:color .3s;cursor:pointer}
 .mobile-menu a:hover{color:var(--accent)}
 .mobile-menu .mobile-cta{margin-top:20px}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:160px 40px 80px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:var(--surface);border:1px solid var(--border);font-size:.8rem;color:var(--text-dim);margin-bottom:32px;cursor:none;animation:fadeInUp .8s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;background:var(--surface);border:1px solid var(--border);font-size:.8rem;color:var(--text-dim);margin-bottom:32px;cursor:pointer;animation:fadeInUp .8s ease both}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{font-family:var(--font-display);font-size:clamp(3rem,8vw,7.5rem);font-weight:700;line-height:1.05;letter-spacing:-.03em;margin-bottom:24px;animation:fadeInUp .8s ease .1s both}
@@ -123,9 +122,9 @@ nav.scrolled{padding:12px 40px;background:rgba(7,7,11,.9)}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .hero p{font-size:clamp(1rem,1.8vw,1.25rem);color:var(--text-dim);max-width:560px;margin:0 auto 48px;line-height:1.7;animation:fadeInUp .8s ease .3s both}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeInUp .8s ease .4s both}
-.btn-primary{padding:16px 36px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:600;font-size:1rem;border:none;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 0 40px rgba(139,92,246,.3)}
+.btn-primary{padding:16px 36px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:600;font-size:1rem;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 0 40px rgba(139,92,246,.3)}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(139,92,246,.4)}
-.btn-secondary{padding:16px 36px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:1rem;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s}
+.btn-secondary{padding:16px 36px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s}
 .btn-secondary:hover{border-color:var(--border-h);transform:translateY(-3px)}
 
 /* BROWSER & DASHBOARD */
@@ -136,7 +135,7 @@ nav.scrolled{padding:12px 40px;background:rgba(7,7,11,.9)}
 .browser-url{flex:1;margin-left:12px;padding:6px 16px;background:rgba(255,255,255,.04);border-radius:8px;font-family:var(--font-mono);font-size:.75rem;color:var(--text-mute)}
 .dashboard-preview{padding:24px;display:grid;grid-template-columns:200px 1fr;gap:16px;min-height:400px}
 .dash-sidebar{background:var(--surface);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--border)}
-.dash-sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-xs);font-size:.8rem;color:var(--text-dim);margin-bottom:4px;cursor:none;transition:all .2s}
+.dash-sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-xs);font-size:.8rem;color:var(--text-dim);margin-bottom:4px;cursor:pointer;transition:all .2s}
 .dash-sidebar-item:hover,.dash-sidebar-item.active{background:var(--surface-2);color:var(--accent)}
 .dash-main{display:flex;flex-direction:column;gap:16px}
 .dash-top{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -182,7 +181,7 @@ section{position:relative;z-index:1;padding:120px 40px}
 .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .roi-inputs{display:flex;flex-direction:column;gap:24px}
 .roi-input-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--text-dim)}
-.roi-input-group input[type="range"]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--surface-2);outline:none;accent-color:var(--accent)}
+.roi-input-group input[type="range"]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--surface-2);outline:none;accent-color:var(--accent);cursor:pointer}
 .roi-input-value{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--accent);margin-top:8px}
 .roi-results{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:32px;display:flex;flex-direction:column;justify-content:center;transition:background .4s}
 .roi-result-item{margin-bottom:24px}
@@ -193,7 +192,7 @@ section{position:relative;z-index:1;padding:120px 40px}
 
 /* FEATURES */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s;cursor:pointer}
 .feature-card:hover{border-color:var(--border-h);transform:translateY(-4px)}
 .feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(6,182,212,.15));border:1px solid rgba(139,92,246,.2)}
 .feature-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:8px}
@@ -201,7 +200,7 @@ section{position:relative;z-index:1;padding:120px 40px}
 
 /* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
-.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;transition:all .4s;position:relative}
+.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;transition:all .4s;position:relative;cursor:pointer}
 .pricing-card.featured{border-color:var(--accent);background:linear-gradient(135deg,rgba(139,92,246,.05),rgba(6,182,212,.05));transform:scale(1.02)}
 .pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:6px 16px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-size:.7rem;font-weight:700;letter-spacing:.1em}
 .pricing-card:hover{transform:translateY(-8px);border-color:var(--border-h)}
@@ -213,13 +212,13 @@ section{position:relative;z-index:1;padding:120px 40px}
 .pricing-card .features-list{list-style:none;margin:24px 0 32px}
 .pricing-card .features-list li{padding:10px 0;font-size:.9rem;color:var(--text-dim);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
 .pricing-card .features-list li:last-child{border:none}
-.pricing-card .plan-btn{width:100%;padding:14px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:none;transition:all .3s;border:none}
+.pricing-card .plan-btn{width:100%;padding:14px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .3s;border:none;text-decoration:none;display:block;text-align:center}
 .pricing-card .plan-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 0 30px var(--glow)}
 .pricing-card .plan-btn.secondary{background:var(--surface);border:1px solid var(--border);color:var(--text)}
 
 /* INTEGRATIONS */
 .integrations-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;max-width:1000px;margin:0 auto}
-.integration-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .3s;cursor:none}
+.integration-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .3s;cursor:pointer}
 .integration-item:hover{border-color:var(--border-h);transform:translateY(-4px)}
 .integration-item img{width:32px;height:32px;object-fit:contain;transition:transform .3s ease}
 .integration-item:hover img{transform:scale(1.15)}
@@ -232,7 +231,7 @@ section{position:relative;z-index:1;padding:120px 40px}
 .testimonials-track{display:flex;gap:24px;animation:scrollTestimonials 40s linear infinite;width:max-content}
 .testimonials-track:hover{animation-play-state:paused}
 @keyframes scrollTestimonials{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.testimonial-card{width:380px;flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s}
+.testimonial-card{width:380px;flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s;cursor:pointer}
 .testimonial-card:hover{border-color:var(--border-h);transform:translateY(-4px)}
 .testimonial-stars{color:#fbbf24;font-size:.9rem;margin-bottom:16px;letter-spacing:2px}
 .testimonial-text{font-size:.95rem;line-height:1.7;color:var(--text-dim);margin-bottom:24px;font-style:italic}
@@ -248,55 +247,16 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 .footer-col h4{font-family:var(--font-display);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;color:var(--text-dim)}
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:12px}
-.footer-col ul li a{color:var(--text-mute);text-decoration:none;font-size:.9rem;transition:color .3s}
+.footer-col ul li a{color:var(--text-mute);text-decoration:none;font-size:.9rem;transition:color .3s;cursor:pointer}
 .footer-col ul li a:hover{color:var(--text)}
 .footer-bottom{max-width:1200px;margin:0 auto;padding-top:30px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--text-mute)}
 .footer-socials{display:flex;gap:16px}
-.footer-socials a{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;transition:all .3s}
+.footer-socials a{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none;transition:all .3s;cursor:pointer}
 .footer-socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-
-/* MODALS */
-.modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;padding:20px}
-.modal-overlay.active{opacity:1;visibility:visible}
-.modal{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);width:100%;max-width:440px;box-shadow:var(--shadow-lg);transform:scale(.95) translateY(20px);transition:transform .3s;max-height:90vh;overflow-y:auto}
-.modal-overlay.active .modal{transform:scale(1) translateY(0)}
-.modal-header{padding:32px 32px 0;display:flex;justify-content:space-between;align-items:flex-start}
-.modal-close{width:32px;height:32px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:none;transition:all .3s}
-.modal-close:hover{background:var(--surface-2);color:var(--text)}
-.modal-body{padding:24px 32px 32px}
-.modal-logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:16px}
-.modal-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:8px}
-.modal-subtitle{color:var(--text-dim);font-size:.9rem;margin-bottom:24px}
-.social-login{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
-.social-btn{width:100%;padding:12px 16px;border-radius:var(--radius-sm);background:var(--surface);border:1px solid var(--border);color:var(--text);font-weight:500;font-size:.9rem;cursor:none;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:12px;font-family:var(--font-body)}
-.social-btn:hover{background:var(--surface-2);border-color:var(--border-h);transform:translateY(-2px)}
-.social-btn.google:hover{border-color:#ea4335}.social-btn.apple:hover{border-color:#000}.social-btn.outlook:hover{border-color:#0078d4}
-.social-btn i{font-size:1.1rem}.social-btn.google i{color:#ea4335}.social-btn.apple i{color:var(--text)}.social-btn.outlook i{color:#0078d4}
-.divider{display:flex;align-items:center;gap:12px;margin:24px 0;color:var(--text-mute);font-size:.8rem}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--text-dim)}
-.form-input{width:100%;padding:12px 16px;border-radius:var(--radius-sm);background:var(--input-bg);border:1px solid var(--border);color:var(--text);font-size:.9rem;outline:none;font-family:var(--font-body);transition:border-color .3s}
-.form-input:focus{border-color:var(--accent)}
-.form-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.form-checkbox{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text-dim);cursor:none}
-.form-checkbox input{cursor:none;accent-color:var(--accent)}
-.form-link{font-size:.85rem;color:var(--accent);text-decoration:none;transition:color .3s}
-.submit-btn{width:100%;padding:14px;border-radius:50px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;font-weight:600;font-size:.95rem;cursor:none;transition:all .3s;box-shadow:0 0 30px var(--glow);font-family:var(--font-body)}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(139,92,246,.5)}
-.submit-btn:disabled{opacity:.6;cursor:not-allowed}
-.modal-footer{text-align:center;margin-top:20px;font-size:.85rem;color:var(--text-dim)}
-.modal-footer a{color:var(--accent);text-decoration:none;font-weight:600}
-.admin-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:50px;background:rgba(236,72,153,.15);color:var(--accent-3);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
-.login-success{text-align:center;padding:40px 20px}
-.login-success .success-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent-4),#16a34a);display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;margin:0 auto 20px;animation:successPop .5s ease}
-@keyframes successPop{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
-.login-success h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px}
-.login-success p{color:var(--text-dim);font-size:.9rem}
 
 /* CHATBOT */
 .chat-widget{position:fixed;bottom:30px;left:30px;z-index:100}
-.chat-toggle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:#fff;font-size:1.5rem;cursor:none;box-shadow:0 0 30px var(--glow);transition:all .3s;position:relative}
+.chat-toggle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 0 30px var(--glow);transition:all .3s;position:relative}
 .chat-toggle:hover{transform:scale(1.1)}
 .chat-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:var(--accent-3);border:2px solid var(--bg);font-size:.6rem;display:flex;align-items:center;justify-content:center;font-weight:700}
 .chat-window{position:absolute;bottom:70px;left:0;width:400px;height:550px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(20px) scale(.95);transition:all .3s}
@@ -307,7 +267,7 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 .chat-header-info .chat-name{font-size:.95rem;font-weight:600}
 .chat-header-info .chat-status{font-size:.75rem;color:var(--accent-4);display:flex;align-items:center;gap:4px}
 .chat-header-info .chat-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-4);animation:pulse 2s ease-in-out infinite}
-.chat-close{background:none;border:none;color:var(--text-dim);cursor:none;font-size:1.2rem}
+.chat-close{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.2rem}
 .chat-messages{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
 .chat-message{max-width:85%;padding:12px 16px;border-radius:16px;font-size:.9rem;line-height:1.5;animation:messageSlide .3s ease}
 @keyframes messageSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -321,13 +281,13 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 .chat-input-area{padding:16px;border-top:1px solid var(--border);display:flex;gap:8px}
 .chat-input-area input{flex:1;padding:12px 16px;border-radius:50px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.9rem;outline:none;font-family:var(--font-body)}
 .chat-input-area input:focus{border-color:var(--accent)}
-.chat-input-area button{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;cursor:none;font-size:1rem;transition:all .3s}
+.chat-input-area button{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;cursor:pointer;font-size:1rem;transition:all .3s}
 .chat-quick-replies{display:flex;gap:8px;padding:12px 16px;flex-wrap:wrap;border-top:1px solid var(--border)}
-.chat-quick-reply{padding:6px 12px;border-radius:50px;background:var(--surface);border:1px solid var(--border);font-size:.75rem;color:var(--text-dim);cursor:none;transition:all .3s}
+.chat-quick-reply{padding:6px 12px;border-radius:50px;background:var(--surface);border:1px solid var(--border);font-size:.75rem;color:var(--text-dim);cursor:pointer;transition:all .3s}
 .chat-quick-reply:hover{border-color:var(--accent);color:var(--accent)}
 
 /* BACK TO TOP */
-.back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:none;opacity:0;visibility:hidden;transition:all .3s;z-index:100;box-shadow:0 0 20px var(--glow);font-size:1.2rem}
+.back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:100;box-shadow:0 0 20px var(--glow);font-size:1.2rem}
 .back-to-top.visible{opacity:1;visibility:visible}
 .back-to-top:hover{transform:translateY(-4px)}
 
@@ -336,7 +296,7 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
 
-/* ===== RESPONSIVE - TABLET (1024px) ===== */
+/* RESPONSIVE */
 @media(max-width:1024px){
   nav{padding:16px 24px}
   .nav-links{display:none}
@@ -349,8 +309,6 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   .chat-window{width:calc(100vw - 40px);left:-10px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
 }
-
-/* ===== RESPONSIVE - MOBILE (768px) ===== */
 @media(max-width:768px){
   nav{padding:12px 20px;top:0}
   .nav-logo{font-size:1.2rem}
@@ -367,7 +325,6 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   .footer-grid{grid-template-columns:1fr;gap:40px}
   .footer-bottom{flex-direction:column;gap:16px;text-align:center}
   section{padding:80px 20px}
-  .modal-body,.modal-header{padding-left:24px;padding-right:24px}
   .integrations-grid{grid-template-columns:repeat(2,1fr)}
   .step{flex-direction:column;gap:16px}
   .steps::before{left:24px}
@@ -380,7 +337,6 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   .chat-window{width:calc(100vw - 40px);height:500px}
   .back-to-top{bottom:20px;right:20px;width:44px;height:44px}
 }
-
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
 </style>
 </head>
@@ -416,10 +372,10 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 
 <!-- Navigation -->
 <nav id="nav">
-  <div class="nav-logo">
+  <a href="https://blacksrj531.github.io/Nexora/" class="nav-logo" target="_blank">
     <div class="logo-mark">N</div>
     NEXORA
-  </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#features"><i class="fas fa-bolt" style="margin-right:6px"></i>Features</a></li>
     <li><a href="#how"><i class="fas fa-cogs" style="margin-right:6px"></i>How it works</a></li>
@@ -429,14 +385,10 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   </ul>
   <div class="nav-right">
     <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><i class="fas fa-sun"></i></button>
-    <!-- UPDATED: Login button now redirects to your demo link -->
     <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="nav-login-btn" target="_blank"><i class="fas fa-user" style="margin-right:6px"></i>Login</a>
-    <!-- UPDATED: Get Started button now redirects to your demo link -->
     <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="nav-cta" target="_blank">Get Started <i class="fas fa-arrow-right" style="margin-left:6px"></i></a>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
@@ -448,10 +400,8 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   <a href="#roi" onclick="closeMobileMenu()">ROI Calculator</a>
   <a href="#customers" onclick="closeMobileMenu()">Customers</a>
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-    <!-- UPDATED: Login button now redirects to your demo link -->
-    <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="nav-login-btn" target="_blank"><i class="fas fa-user" style="margin-right:6px"></i>Login</a>
-    <!-- UPDATED: Get Started button now redirects to your demo link -->
-    <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="nav-cta" target="_blank">Get Started <i class="fas fa-arrow-right" style="margin-left:6px"></i></a>
+  <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="btn-primary mobile-cta" target="_blank">Get Started Free</a>
+  <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="btn-secondary mobile-cta" target="_blank">Login</a>
 </div>
 
 <!-- Hero -->
@@ -466,16 +416,14 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
   </h1>
   <p>Nexora connects your tools, automates workflows, and surfaces insights powered by AI that learns from your team.</p>
   <div class="hero-actions">
-    <a href="#" class="btn-primary" onclick="openModal('userSignup');return false"><span>Start free trial</span><span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
-    <a href="#" class="btn-secondary"><i class="fas fa-play" style="margin-right:8px"></i><span>Watch demo</span></a>
+    <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="btn-primary" target="_blank"><span>Start free trial</span><span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+    <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="btn-secondary" target="_blank"><i class="fas fa-play" style="margin-right:8px"></i><span>Watch demo</span></a>
   </div>
   
   <div style="margin-top:80px;width:100%;">
     <div class="browser">
       <div class="browser-bar">
-        <div class="browser-dot"></div>
-        <div class="browser-dot"></div>
-        <div class="browser-dot"></div>
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
         <div class="browser-url">app.nexora.ai/dashboard</div>
       </div>
       <div class="dashboard-preview">
@@ -690,21 +638,21 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
       <div class="plan-desc">For small teams getting started</div>
       <div class="price"><span class="currency">$</span><span class="amount">0</span><span class="period">/mo</span></div>
       <ul class="features-list"><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Up to 5 team members</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> 10 active workflows</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> 50 integrations</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Community support</li></ul>
-      <button class="plan-btn secondary" onclick="openModal('userSignup')">Get started free</button>
+      <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="plan-btn secondary" target="_blank">Get started free</a>
     </div>
     <div class="pricing-card featured reveal reveal-delay-1">
       <div class="plan-name">Pro</div>
       <div class="plan-desc">For growing teams that need more</div>
       <div class="price"><span class="currency">$</span><span class="amount">29</span><span class="period">/mo</span></div>
       <ul class="features-list"><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Unlimited team members</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Unlimited workflows</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> All 200+ integrations</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Priority support</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Advanced AI suggestions</li></ul>
-      <button class="plan-btn primary" onclick="openModal('userSignup')">Start free trial</button>
+      <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="plan-btn primary" target="_blank">Start free trial</a>
     </div>
     <div class="pricing-card reveal reveal-delay-2">
       <div class="plan-name">Enterprise</div>
       <div class="plan-desc">For organizations at scale</div>
       <div class="price"><span class="currency">$</span><span class="amount">99</span><span class="period">/mo</span></div>
       <ul class="features-list"><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Everything in Pro</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> SSO & SAML</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Dedicated account manager</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Custom SLA</li><li><i class="fas fa-check" style="color:var(--accent-4)"></i> Audit logs & compliance</li></ul>
-      <button class="plan-btn secondary" onclick="openModal('userLogin')">Contact sales</button>
+      <a href="https://blacksrj531.github.io/SaaS_Product_Demo/" class="plan-btn secondary" target="_blank">Contact sales</a>
     </div>
   </div>
 </section>
@@ -721,13 +669,13 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail"><div class="int-name">Gmail</div></div>
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"><div class="int-name">GitHub</div></div>
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce"><div class="int-name">Salesforce</div></div>
-    <div class="integration-item"><img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" alt="Jira"><div class="int-name">Jira</div></div>
-    <div class="integration-item"><img src="https://www.vectorlogo.zone/logos/trello/trello-icon.svg" alt="Trello"><div class="int-name">Trello</div></div>
-    <div class="integration-item"><img src="https://www.vectorlogo.zone/logos/dropbox/dropbox-tile.svg" alt="Dropbox"><div class="int-name">Dropbox</div></div>
-    <div class="integration-item"><img src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg" alt="HubSpot"><div class="int-name">HubSpot</div></div>
+    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg" alt="Jira"><div class="int-name">Jira</div></div>
+    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Trello-logo-blue.svg" alt="Trello"><div class="int-name">Trello</div></div>
+    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dropbox_logo_2017.svg" alt="Dropbox"><div class="int-name">Dropbox</div></div>
+    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/HubSpot.svg" alt="HubSpot"><div class="int-name">HubSpot</div></div>
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe"><div class="int-name">Stripe</div></div>
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom"><div class="int-name">Zoom</div></div>
-    <div class="integration-item"><img src="https://upload.vectorlogo.zone/logos/asana/images/cae029cc-73d9-4b0d-83e2-70893c439061.svg" alt="Asana"><div class="int-name">Asana</div></div>
+    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Asana_logo.svg" alt="Asana"><div class="int-name">Asana</div></div>
     <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion"><div class="int-name">Notion</div></div>
   </div>
 </section>
@@ -736,7 +684,10 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="nav-logo" style="margin-bottom:16px"><div class="logo-mark">N</div>NEXORA</div>
+      <a href="https://blacksrj531.github.io/Nexora/" class="nav-logo" target="_blank" style="margin-bottom:16px;">
+        <div class="logo-mark">N</div>
+        NEXORA
+      </a>
       <p>Workflow intelligence reimagined for modern teams. Built in San Francisco, loved worldwide.</p>
     </div>
     <div class="footer-col">
@@ -753,10 +704,10 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
     </div>
   </div>
   <div class="footer-bottom">
-    <div><i class="far fa-copyright" style="margin-right:4px"></i> 2026 Nexora Inc. All rights reserved. Made By Soumya Ranjan Jena.</div>
+    <div><i class="far fa-copyright" style="margin-right:4px"></i> 2025 Nexora Inc. All rights reserved.</div>
     <div class="footer-socials">
       <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/jenasoumyaranjan531/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
     </div>
@@ -766,96 +717,7 @@ footer{padding:80px 40px 40px;border-top:1px solid var(--border);position:relati
 <!-- Back to Top -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
-<!-- ===== MODALS (User Login, User Signup, Admin Login) ===== -->
-<div class="modal-overlay" id="userLoginModal">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <div class="modal-logo">N</div>
-        <h2 class="modal-title">Welcome back</h2>
-        <p class="modal-subtitle">Sign in to your Nexora account</p>
-      </div>
-      <button class="modal-close" onclick="closeModal('userLogin')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body" id="userLoginForm">
-      <div class="social-login">
-        <button class="social-btn google" onclick="socialLogin('Google','user')"><i class="fab fa-google"></i> Continue with Google</button>
-        <button class="social-btn apple" onclick="socialLogin('Apple','user')"><i class="fab fa-apple"></i> Continue with Apple</button>
-        <button class="social-btn outlook" onclick="socialLogin('Outlook','user')"><i class="fab fa-microsoft"></i> Continue with Outlook</button>
-      </div>
-      <div class="divider">or continue with email</div>
-      <form onsubmit="handleUserLogin(event)">
-        <div class="form-group"><label>Email address</label><input type="email" class="form-input" placeholder="you@company.com" required></div>
-        <div class="form-group"><label>Password</label><input type="password" class="form-input" placeholder="••••••••" required></div>
-        <div class="form-row">
-          <label class="form-checkbox"><input type="checkbox"> Remember me</label>
-          <a href="#" class="form-link">Forgot password?</a>
-        </div>
-        <button type="submit" class="submit-btn">Sign in <i class="fas fa-arrow-right" style="margin-left:8px"></i></button>
-      </form>
-      <div class="modal-footer">Don't have an account? <a href="#" onclick="switchModal('userLogin','userSignup');return false">Sign up free</a></div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="userSignupModal">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <div class="modal-logo">N</div>
-        <h2 class="modal-title">Create account</h2>
-        <p class="modal-subtitle">Start your 14-day free trial</p>
-      </div>
-      <button class="modal-close" onclick="closeModal('userSignup')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body">
-      <div class="social-login">
-        <button class="social-btn google" onclick="socialLogin('Google','user')"><i class="fab fa-google"></i> Sign up with Google</button>
-        <button class="social-btn apple" onclick="socialLogin('Apple','user')"><i class="fab fa-apple"></i> Sign up with Apple</button>
-        <button class="social-btn outlook" onclick="socialLogin('Outlook','user')"><i class="fab fa-microsoft"></i> Sign up with Outlook</button>
-      </div>
-      <div class="divider">or sign up with email</div>
-      <form onsubmit="handleUserSignup(event)">
-        <div class="form-group"><label>Full name</label><input type="text" class="form-input" placeholder="John Doe" required></div>
-        <div class="form-group"><label>Work email</label><input type="email" class="form-input" placeholder="you@company.com" required></div>
-        <div class="form-group"><label>Password</label><input type="password" class="form-input" placeholder="Min 8 characters" required minlength="8"></div>
-        <label class="form-checkbox" style="margin-bottom:20px"><input type="checkbox" required> I agree to the <a href="#" class="form-link">Terms</a> and <a href="#" class="form-link">Privacy Policy</a></label>
-        <button type="submit" class="submit-btn">Create account <i class="fas fa-arrow-right" style="margin-left:8px"></i></button>
-      </form>
-      <div class="modal-footer">Already have an account? <a href="#" onclick="switchModal('userSignup','userLogin');return false">Sign in</a></div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="adminLoginModal">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <div class="admin-badge"><i class="fas fa-shield-alt"></i> Admin Access</div>
-        <h2 class="modal-title">Admin Portal</h2>
-        <p class="modal-subtitle">Restricted access — authorized personnel only</p>
-      </div>
-      <button class="modal-close" onclick="closeModal('adminLogin')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body" id="adminLoginForm">
-      <div class="social-login">
-        <button class="social-btn google" onclick="socialLogin('Google','admin')"><i class="fab fa-google"></i> Admin SSO with Google</button>
-        <button class="social-btn outlook" onclick="socialLogin('Outlook','admin')"><i class="fab fa-microsoft"></i> Admin SSO with Outlook</button>
-      </div>
-      <div class="divider">or use admin credentials</div>
-      <form onsubmit="handleAdminLogin(event)">
-        <div class="form-group"><label>Admin ID</label><input type="text" class="form-input" placeholder="admin@nexora.ai" required></div>
-        <div class="form-group"><label>Password</label><input type="password" class="form-input" placeholder="••••••••" required></div>
-        <div class="form-group"><label>2FA Code</label><input type="text" class="form-input" placeholder="6-digit code" maxlength="6" pattern="[0-9]{6}"></div>
-        <label class="form-checkbox" style="margin-bottom:20px"><input type="checkbox"> Trust this device for 30 days</label>
-        <button type="submit" class="submit-btn"><i class="fas fa-lock" style="margin-right:8px"></i> Secure Login</button>
-      </form>
-      <div class="modal-footer"><i class="fas fa-shield-alt" style="color:var(--accent-4);margin-right:6px"></i> Protected by enterprise-grade security</div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== CHATBOT ===== -->
+<!-- Chatbot Widget -->
 <div class="chat-widget">
   <div class="chat-window" id="chatWindow">
     <div class="chat-header">
@@ -932,12 +794,12 @@ function toggleMobileMenu(){
   const mobileMenu=document.getElementById('mobileMenu');
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('active');
-  document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 }
 function closeMobileMenu(){
   document.getElementById('hamburger').classList.remove('active');
   document.getElementById('mobileMenu').classList.remove('active');
-  document.body.style.overflow='';
+  document.body.style.overflow = '';
 }
 
 // ===== SCROLL REVEAL =====
@@ -972,68 +834,12 @@ function toggleTheme(){
   const icon=next==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
   document.getElementById('themeToggle').innerHTML=icon;
   localStorage.setItem('theme',next);
-  showToast(next==='dark'?'🌙 Dark mode enabled':'☀️ Light mode enabled');
 }
 document.getElementById('themeToggle').addEventListener('click',toggleTheme);
 (function loadTheme(){
   const saved=localStorage.getItem('theme');
   if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.getElementById('themeToggle').innerHTML='<i class="fas fa-moon"></i>'}
 })();
-
-// ===== MODAL SYSTEM =====
-function openModal(name){const modal=document.getElementById(name+'Modal');if(modal){modal.classList.add('active');document.body.style.overflow='hidden'}}
-function closeModal(name){const modal=document.getElementById(name+'Modal');if(modal){modal.classList.remove('active');document.body.style.overflow=''}}
-function switchModal(from,to){closeModal(from);setTimeout(()=>openModal(to),200)}
-document.querySelectorAll('.modal-overlay').forEach(overlay=>{overlay.addEventListener('click',e=>{if(e.target===overlay){overlay.classList.remove('active');document.body.style.overflow=''}})});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.active').forEach(m=>{m.classList.remove('active')});document.body.style.overflow='';closeMobileMenu()}});
-
-// ===== LOGIN HANDLERS =====
-function socialLogin(provider,type){showToast(`Connecting to ${provider}...`);setTimeout(()=>{showLoginSuccess(type,provider)},1500)}
-function handleUserLogin(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Signing in...';setTimeout(()=>{showLoginSuccess('user','Email');btn.disabled=false;btn.innerHTML='Sign in <i class="fas fa-arrow-right" style="margin-left:8px"></i>'},1500)}
-function handleUserSignup(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Creating account...';setTimeout(()=>{showLoginSuccess('user','Email');btn.disabled=false;btn.innerHTML='Create account <i class="fas fa-arrow-right" style="margin-left:8px"></i>'},1500)}
-function handleAdminLogin(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Verifying...';setTimeout(()=>{showLoginSuccess('admin','Admin');btn.disabled=false;btn.innerHTML='<i class="fas fa-lock" style="margin-right:8px"></i> Secure Login'},2000)}
-function showLoginSuccess(type,method){
-  const formId=type==='admin'?'adminLoginForm':'userLoginForm';
-  const form=document.getElementById(formId);
-  if(form){
-    form.innerHTML=`<div class="login-success"><div class="success-icon"><i class="fas fa-check"></i></div><h3>Welcome back!</h3><p>Signed in with ${method} successfully</p><p style="margin-top:12px;font-size:.8rem;color:var(--text-mute)">Redirecting to dashboard...</p></div>`;
-    setTimeout(()=>{closeModal(type==='admin'?'adminLogin':'userLogin');showToast('✅ Successfully logged in!')},2000);
-  }
-}
-
-// ===== TOAST =====
-function showToast(message){
-  const existing=document.querySelector('.toast-notification');if(existing)existing.remove();
-  const toast=document.createElement('div');
-  toast.className='toast-notification';
-  toast.style.cssText=`position:fixed;top:80px;right:20px;z-index:100001;padding:14px 20px;border-radius:12px;background:var(--bg-2);border:1px solid var(--border);color:var(--text);font-size:.9rem;box-shadow:0 20px 40px rgba(0,0,0,.3);animation:toastSlide .3s ease;max-width:300px`;
-  toast.textContent=message;document.body.appendChild(toast);
-  setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translateX(100px)';toast.style.transition='all .3s';setTimeout(()=>toast.remove(),300)},3000);
-}
-const toastStyle=document.createElement('style');toastStyle.textContent=`@keyframes toastSlide{from{opacity:0;transform:translateX(100px)}to{opacity:1;transform:translateX(0)}}`;document.head.appendChild(toastStyle);
-
-// ===== ROI CALCULATOR =====
-const roiTeam=document.getElementById('roiTeam');
-const roiHours=document.getElementById('roiHours');
-const roiRate=document.getElementById('roiRate');
-function updateROI(){
-  const team=parseInt(roiTeam.value);
-  const hours=parseInt(roiHours.value);
-  const rate=parseInt(roiRate.value);
-  document.getElementById('roiTeamVal').textContent=team+' people';
-  document.getElementById('roiHoursVal').textContent=hours+' hours';
-  document.getElementById('roiRateVal').textContent='$'+rate+'/hr';
-  const annualHours=team*hours*52*0.8;
-  const annualCost=annualHours*rate;
-  const roi=((annualCost-348)/348*100).toFixed(0);
-  document.getElementById('roiTime').textContent=annualHours.toLocaleString()+' hrs';
-  document.getElementById('roiCost').textContent='$'+annualCost.toLocaleString();
-  document.getElementById('roiReturn').textContent=roi+'%';
-}
-roiTeam.addEventListener('input',updateROI);
-roiHours.addEventListener('input',updateROI);
-roiRate.addEventListener('input',updateROI);
-updateROI();
 
 // ===== CHATBOT =====
 const saasKnowledgeBase={
@@ -1074,43 +880,6 @@ window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelec
 
 // ===== INITIAL GREETING =====
 setTimeout(()=>{if(!document.getElementById('chatWindow').classList.contains('active')){document.getElementById('chatBadge').style.display='flex'}},5000);
-
-// ===== CODE PROTECTION DETERRRENTS =====
-// Disable Right-Click
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-document.addEventListener('keydown', event => {
-    // Block F12
-    if (event.key === 'F12') {
-        event.preventDefault();
-        return false;
-    }
-    // Block Ctrl+Shift+I / J / C (DevTools)
-    if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i' || event.key === 'J' || event.key === 'j' || event.key === 'C' || event.key === 'c')) {
-        event.preventDefault();
-        return false;
-    }
-    // Block Ctrl+U (View Source)
-    if (event.ctrlKey && (event.key === 'U' || event.key === 'u')) {
-        event.preventDefault();
-        return false;
-    }
-    // Block Ctrl+S (Save Page)
-    if (event.ctrlKey && (event.key === 'S' || event.key === 's')) {
-        event.preventDefault();
-        return false;
-    }
-});
-
-// Optional: Clear console if they manage to open it
-setInterval(() => {
-    console.clear();
-    console.log("%c STOP!", "color: red; font-size: 50px; font-weight: bold;");
-    console.log("%c This browser feature is for developers. If someone told you to copy-paste here, it's a scam.", "font-size: 16px;");
-}, 2000);
-  
 </script>
-
 </body>
 </html>
