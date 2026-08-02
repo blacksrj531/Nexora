@@ -1070,6 +1070,43 @@ window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelec
 
 // ===== INITIAL GREETING =====
 setTimeout(()=>{if(!document.getElementById('chatWindow').classList.contains('active')){document.getElementById('chatBadge').style.display='flex'}},5000);
+
+// ===== CODE PROTECTION DETERRRENTS =====
+// Disable Right-Click
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+document.addEventListener('keydown', event => {
+    // Block F12
+    if (event.key === 'F12') {
+        event.preventDefault();
+        return false;
+    }
+    // Block Ctrl+Shift+I / J / C (DevTools)
+    if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i' || event.key === 'J' || event.key === 'j' || event.key === 'C' || event.key === 'c')) {
+        event.preventDefault();
+        return false;
+    }
+    // Block Ctrl+U (View Source)
+    if (event.ctrlKey && (event.key === 'U' || event.key === 'u')) {
+        event.preventDefault();
+        return false;
+    }
+    // Block Ctrl+S (Save Page)
+    if (event.ctrlKey && (event.key === 'S' || event.key === 's')) {
+        event.preventDefault();
+        return false;
+    }
+});
+
+// Optional: Clear console if they manage to open it
+setInterval(() => {
+    console.clear();
+    console.log("%c STOP!", "color: red; font-size: 50px; font-weight: bold;");
+    console.log("%c This browser feature is for developers. If someone told you to copy-paste here, it's a scam.", "font-size: 16px;");
+}, 2000);
+  
 </script>
+
 </body>
 </html>
